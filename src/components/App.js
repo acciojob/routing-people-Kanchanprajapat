@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 import './../styles/App.css';
 
+const App = () => {
+  return (
+    <Router>
+      <div>
+        {/* Do not remove the main div */}
+        <h1>User List</h1>
+        <Routes>
+          <Route path="/" element={<UserList />} />
+          <Route path="/users/:id" element={<UserWrapper />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
 // Sample user data
 const users = [
-  { id: 1, name: 'John Doe', email: 'john@example.com' },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
-  { id: 3, name: 'Alice Johnson', email: 'alice@example.com' }
+  { id: 1, name: 'Leanne Graham', email: 'leanne@example.com' },
+  { id: 2, name: 'Ervin Howell', email: 'ervin@example.com' },
+  { id: 3, name: 'Clementine Bauch', email: 'clementine@example.com' }
 ];
 
 // Component to display list of users with links to their details
@@ -40,26 +55,28 @@ const UserDetail = ({ user }) => {
   );
 };
 
-// Wrapper component to pass user data as props
+// Wrapper component to pass user data as props and manage loading state
 const UserWrapper = () => {
   const { id } = useParams();
-  const user = users.find(user => user.id === parseInt(id, 10));
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const userId = parseInt(id, 10);
+    const fetchedUser = users.find(user => user.id === userId);
+
+    // Simulate loading
+    setTimeout(() => {
+      setUser(fetchedUser);
+      setLoading(false);
+    }, 1000);
+  }, [id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return <UserDetail user={user} />;
 };
-
-const App = () => {
-  return (
-    <Router>
-      <div>
-        {/* Do not remove the main div */}
-        <h1>Routing People</h1>
-        <Routes>
-          <Route path="/" element={<UserList />} />
-          <Route path="/users/:id" element={<UserWrapper />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-}
 
 export default App;
