@@ -16,11 +16,11 @@ const App = () => {
   );
 };
 
-// Sample user data with specific email addresses
+// Sample user data with website information included
 const users = [
-  { id: 1, name: 'Leanne Graham', username: 'Bret', email: 'Sincere@april.biz' },
-  { id: 2, name: 'Ervin Howell', username: 'Antonette', email: 'Shanna@melissa.tv' },
-  { id: 3, name: 'Clementine Bauch', username: 'Samantha', email: 'Nathan@yesenia.net' }
+  { id: 1, name: 'Leanne Graham', username: 'Bret', email: 'Sincere@april.biz', phone: '1-770-736-8031 x56442', website: 'hildegard.org' },
+  { id: 2, name: 'Ervin Howell', username: 'Antonette', email: 'Shanna@melissa.tv', phone: '010-692-6593 x09125', website: 'anastasia.net' },
+  { id: 3, name: 'Clementine Bauch', username: 'Samantha', email: 'Nathan@yesenia.net', phone: '1-463-123-4447', website: 'ramiro.info' }
 ];
 
 // Component to display list of users with links to their details
@@ -51,6 +51,8 @@ const UserDetail = ({ user }) => {
       <p>Name: {user.name}</p>
       <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
+      <p>Phone: {user.phone}</p>
+      <p>Website: <a href={`http://${user.website}`} target="_blank" rel="noopener noreferrer">{user.website}</a></p> {/* Added website */}
     </div>
   );
 };
