@@ -6,7 +6,6 @@ const App = () => {
   return (
     <Router>
       <div>
-        {/* Do not remove the main div */}
         <h1>User List</h1>
         <Routes>
           <Route path="/" element={<UserList />} />
@@ -17,11 +16,11 @@ const App = () => {
   );
 };
 
-// Sample user data
+// Sample user data with specific email addresses
 const users = [
-  { id: 1, name: 'Leanne Graham', username: 'Bret', email: 'leanne@example.com' },
-  { id: 2, name: 'Ervin Howell', username: 'Antonette', email: 'ervin@example.com' },
-  { id: 3, name: 'Clementine Bauch', username: 'Samantha', email: 'clementine@example.com' }
+  { id: 1, name: 'Leanne Graham', username: 'Bret', email: 'Sincere@april.biz' },
+  { id: 2, name: 'Ervin Howell', username: 'Antonette', email: 'Shanna@melissa.tv' },
+  { id: 3, name: 'Clementine Bauch', username: 'Samantha', email: 'Nathan@yesenia.net' }
 ];
 
 // Component to display list of users with links to their details
