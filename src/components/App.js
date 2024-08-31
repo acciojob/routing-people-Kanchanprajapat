@@ -19,9 +19,9 @@ const App = () => {
 
 // Sample user data
 const users = [
-  { id: 1, name: 'Leanne Graham', email: 'leanne@example.com' },
-  { id: 2, name: 'Ervin Howell', email: 'ervin@example.com' },
-  { id: 3, name: 'Clementine Bauch', email: 'clementine@example.com' }
+  { id: 1, name: 'Leanne Graham', username: 'Bret', email: 'leanne@example.com' },
+  { id: 2, name: 'Ervin Howell', username: 'Antonette', email: 'ervin@example.com' },
+  { id: 3, name: 'Clementine Bauch', username: 'Samantha', email: 'clementine@example.com' }
 ];
 
 // Component to display list of users with links to their details
@@ -50,6 +50,7 @@ const UserDetail = ({ user }) => {
     <div>
       <h2>User Details</h2>
       <p>Name: {user.name}</p>
+      <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
     </div>
   );
